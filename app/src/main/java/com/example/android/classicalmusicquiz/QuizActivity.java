@@ -68,7 +68,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         // Initialize the player view.
         mPlayerView = (SimpleExoPlayerView) findViewById(R.id.playerView);
 
-        // TODO (1): Create a layout file called exo_playback_control_view to override the playback control layout.
+        // OK (1): Create a layout file called exo_playback_control_view to override the playback control layout.
 
         boolean isNewGame = !getIntent().hasExtra(REMAINING_SONGS_KEY);
 
@@ -90,8 +90,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         mAnswerSampleID = QuizUtils.getCorrectAnswerID(mQuestionSampleIDs);
 
         // Load the question mark as the background image until the user answers the question.
-        mPlayerView.setDefaultArtwork(BitmapFactory.decodeResource
-                (getResources(), R.drawable.question_mark));
+        mPlayerView.setDefaultArtwork(BitmapFactory.decodeResource(getResources(), R.drawable.question_mark));
 
         // If there is only one answer left, end the game.
         if (mQuestionSampleIDs.size() < 2) {
@@ -226,7 +225,10 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
      * show the correct answer.
      */
     private void showCorrectAnswer() {
+
+        //show correct art
         mPlayerView.setDefaultArtwork(Sample.getComposerArtBySampleID(this, mAnswerSampleID));
+
         for (int i = 0; i < mQuestionSampleIDs.size(); i++) {
             int buttonSampleID = mQuestionSampleIDs.get(i);
 
